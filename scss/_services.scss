@@ -1,0 +1,219 @@
+.services {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0 0;
+  transform-style: preserve-3d;
+  transition: all .5s;
+  
+  @include respond(tab-land) {
+    justify-content: space-around;
+    padding-bottom: 6rem;
+  }
+}
+
+.service {
+  flex: 0 0 200px;
+  max-width: 100%;
+  border: none;
+  background-color: $color-background;
+  cursor: pointer;
+  padding: 0 0 1.25rem;
+  margin: 0 2rem;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: .5;
+  transform: scale(.85);
+  transition: all .3s;
+
+  @include respond(tab-land) {
+    flex: 0 0 18%;
+    padding: 0 0 1.25rem;
+    margin: 0;
+    opacity: 1;
+    animation: carousel-move-in-up .5s forwards ease-in-out;
+  }
+
+  & picture {
+    transition: all .175s ease-in-out;
+  }
+  
+  &__image {
+    transition: all .5s;
+  }
+
+  &__heading {
+    text-align: center;
+    font-size: 1.6rem;
+    color: $color-text;
+    font-family: $font-family-main;
+    transition: all .5s;
+
+    @include respond(desk-small) {
+      font-size: 2rem;
+    }
+  }
+
+  &.active {
+    outline: none;
+    opacity: 1;
+    transform: scale(1.1);
+
+    @include respond(tab-land) {
+      animation: carousel-fade-in-down .5s forwards ease-in-out;
+      transform: scale(1) translateY(1.5rem);
+    }
+
+    & picture {
+      opacity: 0;
+      height: 0;
+      transform: scale(0);
+    }
+
+    &::after {
+
+      @include respond(tab-port) {
+        content: "";
+        transition: all .5s;
+        width: 0; 
+        height: 0; 
+        position: absolute;
+        bottom: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid rgba($color-text, .25);
+        animation: fade-in .5s forwards ease-in-out;
+      }
+    }
+  }
+}
+
+.carousel {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1rem;
+  background-color: $color-background;
+  border-radius: $design-border-radius-default;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  order: 3;
+  
+  @include respond(tab-land) {
+    order: 2;
+    padding: 3rem;
+  }
+
+  &__image {
+    flex: 0 0 100%;
+    display: flex; // ensure vertical centering
+    padding: 2rem 1rem;
+    position: relative;
+    
+    @include respond(tab-land) {
+      flex: 0 0 40%;
+      border-right: 5px solid $color-primary;
+      border-bottom: none;
+      padding: 0 5% 0 0;
+    }
+
+    &::after {
+      content: "";
+      width: 40%;
+      height: 0; 
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 2px solid $color-primary;
+
+      @include respond(tab-land) {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    flex: 0 0 100%;
+    padding: 2rem 1rem;
+    
+    @include respond(tab-land) {
+      flex: 0 0 40%;
+      margin-left: 5%;
+      padding: 2rem 0;
+    }
+  }
+
+  &__nav {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem auto 4rem;
+    order: 2;
+
+    @include respond(tab-land) {
+      margin: 7rem auto 2rem;
+      order: 3;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__dot {
+    width: 1rem;
+    height: 1rem;
+    margin: 0 4px;
+    border-radius: 100px;
+    background-color: rgba($color-text, .35);
+    cursor: pointer;
+    transition: all .5s;
+
+    &.active {
+      background-color: $color-text;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+
+    &--left {
+        left: 0;
+    }
+
+    &--right {
+        right: 0;
+    }
+
+    & .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: $color-text;
+      display: inline-block;
+    }
+  }
+
+}

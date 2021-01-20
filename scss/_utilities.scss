@@ -1,0 +1,20 @@
+// UTILITY CLASSES
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.bordered {
+    border: 6px solid $color-background;
+
+    @include respond(desk-small) {
+        border: 10px solid $color-background;
+    }
+}

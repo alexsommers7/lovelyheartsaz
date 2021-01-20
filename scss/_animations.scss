@@ -1,0 +1,630 @@
+// intersection observer declarations
+.fade {
+    transition: opacity .75s ease-in-out, transform .75s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out, border .3s ease-in-out;
+}
+
+.fadeFromTop {
+    opacity: 0;
+    transform: translateY(-2rem);
+}
+
+.fadeFromTopVisible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.fadeFromBottom {
+    opacity: 0;
+    transform: translateY(2rem);
+}
+
+.fadeFromBottomVisible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.fadeFromLeft {
+    opacity: 0;
+    transform: translateX(-2rem);
+}
+
+.fadeFromLeftVisible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.fadeFromRight {
+    opacity: 0;
+    transform: translateX(2rem);
+}
+
+.fadeFromRightVisible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+div.fadeDelayShort { // Adding div to override specificity of .fade transition declaration
+    transition: opacity .75s .4s ease-in, transform .75s .4s ease-in, background-color .3s ease-in-out, color .3s ease-in-out, border .3s ease-in-out;
+
+    // Remove delay once stacked
+    @include respond(tab-port) {
+        transition: opacity .75s ease-in, transform .75s ease-in, background-color .3s ease-in-out, color .3s ease-in-out, border .3s ease-in-out;
+    }
+}
+
+div.fadeDelayLong { // Adding div to override specificity of .fade transition declaration
+    transition: opacity .75s .6s ease-in, transform .75s .6s ease-in, background-color .3s ease-in-out, color .3s ease-in-out, border .3s ease-in-out;
+
+    // Remove delay once stacked
+    @include respond(tab-port) {
+        transition: opacity .75s ease-in, transform .75s ease-in, background-color .3s ease-in-out, color .3s ease-in-out, border .3s ease-in-out;
+    }
+}
+
+
+// utility animations
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-4rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// header animations
+@keyframes headerText {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 40%;
+    }
+}
+
+@keyframes imgReveal {
+    75% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    76%, 100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes img1Cover {
+    30% {
+        left: .5rem;
+        width: 0;
+    }
+
+    45% {
+        left: -.5rem;
+        width: 15px;
+    }
+
+    55% {
+        left: 0;
+        width: 0;
+    }
+
+    68% {
+        left: 0;
+        width: 10rem;
+        transform: scaleX(1);
+    }
+
+    75% {
+        transform: scaleX(1.1);
+    }
+
+    100% {
+        transform: scaleX(0);
+        width: 10rem;
+        left: 0;
+    }
+}
+
+@include respond(tab-port) {
+    @keyframes img1Cover {
+        30% {
+            left: .5rem;
+            width: 0;
+        }
+    
+        45% {
+            left: -.5rem;
+            width: 15px;
+        }
+    
+        55% {
+            left: 0;
+            width: 0;
+        }
+    
+        68% {
+            left: 0;
+            width: 25%;
+            transform: scaleX(1);
+        }
+    
+        75% {
+            transform: scaleX(1.1);
+        }
+    
+        100% {
+            transform: scaleX(0);
+            width: 25%;
+            left: 0;
+        }
+    }
+}
+
+@include respond(tab-land) {
+    @keyframes img1Cover {
+        30% {
+            left: 4.5rem;
+            width: 0;
+        }
+    
+        45% {
+            left: 3.5rem;
+            width: 15px;
+        }
+    
+        55% {
+            left: 4rem;
+            width: 0;
+        }
+    
+        68% {
+            left: 4rem;
+            width: 15rem;
+            transform: scaleX(1);
+        }
+    
+        75% {
+            transform: scaleX(1.1);
+        }
+    
+        100% {
+            transform: scaleX(0);
+            width: 15rem;
+            left: 4rem;
+        }
+    }
+}
+
+@keyframes img2Cover {
+    30% {
+        bottom: 2rem;
+        height: 0;
+    }
+
+    45% {
+        bottom: 3rem;
+        height: 15px;
+    }
+
+    55% {
+        bottom: 2.5rem;
+        height: 0;
+    }
+
+    68% {
+        bottom: 2.5rem;
+        height: 15rem;
+        transform: scaleY(1);
+    }
+
+    75% {
+        transform: scaleY(1.1);
+    }
+
+    100% {
+        transform: scaleY(0);
+        height: 15rem;
+        bottom: 2.5rem;
+    }
+}
+
+@include respond(tab-port) {
+    @keyframes img2Cover {
+        30% {
+            bottom: 4.5rem;
+            height: 0;
+        }
+    
+        45% {
+            bottom: 5.5rem;
+            height: 15px;
+        }
+    
+        55% {
+            bottom: 5rem;
+            height: 0;
+        }
+    
+        68% {
+            bottom: 5rem;
+            height: 20rem;
+            transform: scaleY(1);
+        }
+    
+        75% {
+            transform: scaleY(1.1);
+        }
+    
+        100% {
+            transform: scaleY(0);
+            height: 20rem;
+            bottom: 5rem;
+        }
+    } 
+}
+
+@include respond(tab-land) {
+    @keyframes img2Cover {
+        30% {
+            bottom: 1.5rem;
+            height: 0;
+        }
+    
+        45% {
+            bottom: 2.5rem;
+            height: 15px;
+        }
+    
+        55% {
+            bottom: 2rem;
+            height: 0;
+        }
+    
+        68% {
+            bottom: 2rem;
+            height: 20rem;
+            transform: scaleY(1);
+        }
+    
+        75% {
+            transform: scaleY(1.1);
+        }
+    
+        100% {
+            transform: scaleY(0);
+            height: 20rem;
+            bottom: 2rem;
+        }
+    } 
+}
+
+@include respond(desk-small) {
+    @keyframes img2Cover {
+        30% {
+            bottom: 10.5rem;
+            height: 0;
+        }
+    
+        45% {
+            bottom: 9.5rem;
+            height: 15px;
+        }
+    
+        55% {
+            bottom: 9.5rem;
+            height: 0;
+        }
+    
+        68% {
+            bottom: 9.5rem;
+            height: 20rem;
+            transform: scaleY(1);
+        }
+    
+        75% {
+            transform: scaleY(1.1);
+        }
+    
+        100% {
+            transform: scaleY(0);
+            height: 20rem;
+            bottom: 9.5rem;
+        }
+    } 
+}
+
+@keyframes img3Cover {
+    30% {
+        top: -4.5rem;
+        height: 0;
+    }
+
+    45% {
+        top: -3.5rem;
+        height: 15px;
+    }
+
+    55% {
+        top: -4rem;
+        height: 0;
+    }
+
+    68% {
+        top: -4rem;
+        height: 15rem;
+        transform: scaleY(1);
+    }
+
+    75% {
+        transform: scaleY(1.1);
+    }
+
+    100% {
+        transform: scaleY(0);
+        height: 15rem;
+        top: -4rem;
+    }
+}
+
+@include respond(tab-port) {
+    @keyframes img3Cover {
+        30% {
+            top: -4.5rem;
+            height: 0;
+        }
+
+        45% {
+            top: -3.5rem;
+            height: 15px;
+        }
+
+        55% {
+            top: -4rem;
+            height: 0;
+        }
+
+        68% {
+            top: -4rem;
+            height: 25rem;
+            transform: scaleY(1);
+        }
+
+        75% {
+            transform: scaleY(1.1);
+        }
+
+        100% {
+            transform: scaleY(0);
+            height: 25rem;
+            top: -4rem;
+        }
+    }
+}
+
+@include respond(tab-land) {
+    @keyframes img3Cover {
+        30% {
+            top: 21%;
+            height: 0;
+        }
+
+        45% {
+            top: 19%;
+            height: 15px;
+        }
+
+        55% {
+            top: 20%;
+            height: 0;
+        }
+
+        68% {
+            top: 20%;
+            height: 25rem;
+            transform: scaleY(1);
+        }
+
+        75% {
+            transform: scaleY(1.1);
+        }
+
+        100% {
+            transform: scaleY(0);
+            height: 25rem;
+            top: 20%;
+        }
+    }
+}
+
+@keyframes img4Cover {
+    30% {
+        right: .5rem;
+        width: 0;
+    }
+
+    45% {
+        right: -.5rem;
+        width: 15px;
+    }
+
+    55% {
+        right: 0;
+        width: 0;
+    }
+
+    68% {
+        right: 0;
+        width: 8rem;
+        transform: scaleX(1);
+    }
+
+    75% {
+        transform: scaleX(1.1);
+    }
+
+    100% {
+        transform: scaleX(0);
+        width: 8rem;
+        right: 0;
+    }
+}
+
+@include respond(tab-port) {
+    @keyframes img4Cover {
+        30% {
+            right: .5rem;
+            width: 0;
+        }
+
+        45% {
+            right: -.5rem;
+            width: 15px;
+        }
+
+        55% {
+            right: 0;
+            width: 0;
+        }
+
+        68% {
+            right: 0;
+            width: 25%;
+            transform: scaleX(1);
+        }
+
+        75% {
+            transform: scaleX(1.1);
+        }
+
+        100% {
+            transform: scaleX(0);
+            width: 25%;
+            right: 0;
+        }
+    }
+}
+
+@include respond(tab-land) {
+    @keyframes img4Cover {
+        30% {
+            right: 3.5rem;
+            width: 0;
+        }
+
+        45% {
+            right: 2.5rem;
+            width: 15px;
+        }
+
+        55% {
+            right: 3rem;
+            width: 0;
+        }
+
+        68% {
+            right: 3rem;
+            width: 15rem;
+            transform: scaleX(1);
+        }
+
+        75% {
+            transform: scaleX(1.1);
+        }
+
+        100% {
+            transform: scaleX(0);
+            width: 15rem;
+            right: 3rem;
+        }
+    }
+}
+
+// carousel animations
+@keyframes carousel-image-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes carousel-text-fade-in {
+    0%, 65% {
+        opacity: 0;
+        transform: translateX(-4rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.carouselImageFade {
+    animation: carousel-image-fade-in .5s ease-in-out forwards;
+}
+.carouselTextFade {
+    animation: carousel-text-fade-in .5s ease-out forwards;
+}
+
+@keyframes carousel-fade-in-down {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(2rem);
+    }
+}
+
+@keyframes carousel-move-in-up {
+    0% {
+        transform: translateY(2rem);
+    }
+    100% {
+        transform: translateY(0rem);
+    }
+}

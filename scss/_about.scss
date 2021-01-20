@@ -1,0 +1,66 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__image,
+  &__story {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include respond(desk-small) {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    order: 1;
+    flex: 0 1 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6e6e6' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    margin-bottom: 2rem;
+
+    @include respond(desk-small) {
+      order: 0;
+      flex: 0 1 44%;
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+
+    & picture,
+    & img {
+      max-height: 95%;
+    }
+
+    & img {
+      max-width: 90%;
+      margin-left: 7%;
+      margin-top: 3%;
+
+      @include respond(desk-small) {
+        margin-left: 25%;
+      }
+    }
+  }
+
+  &__story {
+    flex: 1 0 100%;
+    align-self: center;
+    padding: 0;
+    margin: 0 0 4rem;
+
+    @include respond(desk-small) {
+      flex: 1 0 30%;
+      padding: 0 8% 0 15%;
+    }
+
+    @include respond(desk-medium) {
+      padding: 0 12% 0 15%;
+    }
+  }
+
+  &__text {
+    padding: 1.5rem 0 .75rem;
+  }
+
+}

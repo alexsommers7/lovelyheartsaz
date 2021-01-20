@@ -1,0 +1,233 @@
+.header {
+    margin-top: $sticky-nav-height-small; // account for nav bar
+    padding: 2rem;
+    color: $color-text;
+    background-image: linear-gradient(to bottom, rgba(239,239,239,.6), rgba(239,239,239,.6)), url(/img/home-hero.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+
+    @include respond(desk-small) {
+        min-height: 60rem;
+        margin-top: $sticky-nav-height-large; // account for nav bar
+    }
+
+    &__row {
+        flex: 1 1 100%;
+        max-width: 1400px;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        align-content: flex-start;
+        flex-direction: column;
+
+        @include respond(tab-land) {
+            flex-direction: row;
+            align-content: normal;
+        }
+
+        @include respond(desk-medium) {
+            justify-content: space-between;
+        }
+    }
+
+    &__text,
+    &__images {
+        display: flex;
+    }
+
+    &__text {
+        padding: 3rem 0 7rem;
+        text-align: left;
+        flex-direction: column;
+        transform: translateX(-4rem);
+        opacity: 0;
+        animation: fade-in-right .5s 1.9s ease-in-out forwards;
+
+        @include respond(tab-land) {
+            align-self: center;
+            flex: 0 0 30%;
+        }
+
+        @include respond(desk-small) {
+            padding: 0;
+            flex: 0 0 40%;
+        }
+    }
+
+    &__images {
+        justify-content: center;
+        position: relative;
+        min-height: 25rem;
+
+        @include respond(tab-port) {
+            min-height: 35rem;
+        }
+
+        @include respond(tab-land) {
+            min-height: none;
+            flex: 0 0 60%;
+        }
+
+        @include respond(desk-small) {
+            flex: 0 0 50%;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        object-position: center;
+        border-radius: 3px;
+        animation: imgReveal 3.5s linear forwards;
+
+        &__cover {
+            background-color: $color-background;
+            position: absolute;
+            z-index: 100;
+        }
+
+        &--1,
+        &--1__cover {
+            width: 10rem;
+            height: 10rem;
+            top: 0;
+            left: 0;
+            z-index: 1;
+
+            @include respond(tab-port) {
+                width: 25%;
+                height: 15rem;
+            }
+
+            @include respond(tab-land) {
+                top: 30%;
+                width: 15rem;
+                left: 4rem;
+            }
+        }
+
+        &--1 {
+            object-position: top;
+
+            &__cover {
+                transform-origin: right;
+                animation: img1Cover 3.5s linear forwards;
+            }
+        }
+
+        &--2,
+        &--2__cover {
+            width: 15rem;
+            height: 15rem;
+            left: 6rem;
+            z-index: 4;
+
+            @include respond(tab-port) {
+                width: 35%;
+                height: 20rem;
+            }
+
+            @include respond(tab-land) {
+                width: 20rem;
+                left: 13rem;
+            }
+        }
+
+        &--2 {
+            bottom: 2.5rem;
+
+            @include respond(tab-port) {
+                bottom: 5rem;
+            }
+
+            @include respond(tab-land) {
+                bottom: 2rem;
+            }
+
+            @include respond(desk-small) {
+                bottom: 9.5rem;
+            }
+            
+            &__cover {
+                bottom: 0;
+                transform-origin: top;
+                animation: img2Cover 3.5s linear forwards;
+            }
+        }
+
+        &--3,
+        &--3__cover {
+            width: 15rem;
+            height: 15rem;
+            top: -4rem;
+            right: 4rem;
+            z-index: 3;
+
+            @include respond(tab-port) {
+                width: 40%;
+                height: 25rem;
+                right: 10rem;
+            }
+
+            @include respond(tab-land) {
+                top: 20%;
+                width: 25rem;
+            }
+
+            @include respond(desk-small) {
+                right: 15rem;
+            }
+        }
+
+        &--3 {
+
+            &__cover {
+                transform-origin: bottom;
+                animation: img3Cover 3.5s linear forwards;
+            }
+        }
+
+        &--4,
+        &--4__cover {
+            width: 8rem;
+            height: 8rem;
+            top: 9rem;
+            right: 0;
+            z-index: 2;
+
+            @include respond(tab-port) {
+                width: 25%;
+                height: 15rem;
+                top: 18rem;
+            }
+
+            @include respond(tab-land) {
+                width: 15rem;
+                top: 55%;
+                right: 3rem;
+            }
+        }
+
+        &--4 {
+            
+            &__cover {
+                transform-origin: left;
+                animation: img4Cover 3.5s linear forwards;
+            }
+        }
+    }
+
+    & h1 {
+        text-align: left;
+        color: $color-primary;
+        padding: 2.2rem 0;
+    }
+
+    & p {
+        align-self: flex-start;
+        font-size: 1.8rem;
+        padding-left: 4px;
+    }
+}
