@@ -116,10 +116,10 @@ function handleGesture() {
 
 buttonTrack.addEventListener('touchstart', e => {
     touchstartX = e.changedTouches[0].screenX;
-});
+}, { passive: true });
 
 buttonTrack.addEventListener('touchend', e => {
     touchendX = e.changedTouches[0].screenX;
     handleGesture();
     clearInterval(autoplay);
-});
+}, { passive: true });
