@@ -121,4 +121,5 @@ buttonTrack.addEventListener('touchstart', e => {
 buttonTrack.addEventListener('touchend', e => {
     touchendX = e.changedTouches[0].screenX;
     handleGesture();
+    clearInterval(autoplay);
 });
