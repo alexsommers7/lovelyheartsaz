@@ -29,25 +29,28 @@ buttons.forEach(button => {
 });
 const dots = document.querySelectorAll(".carousel__dot");
 
-// initialize counter var
+// initialize counter var. Start in middle if on mobile
 let position = 0;
+if (screen.width <= 900) {
+    position = 2;
+}
 
 // slider functionality
 function carousel(n) {
-
-    // calculate width of carousel item plus margins (for mobile)
-    let buttonWidth = document.querySelector(".service:not(.active)").clientWidth + 40;
 
     // if at last item, reset to first. if at first item, go to last
     if (n >= numButtons) n = 0;
     else if (n < 0) n = (numButtons - 1);
 
-    // if on mobile, activate mobile slider
-    // here, we're mamipulating n to avoid messing with the indeces of the buttons
-    // in this sense, when on mobile, n = 0 essentially becomes n = 2, since we start in middle
+    // calculate width of carousel item plus margins (for mobile)
+    let buttonWidth = document.querySelector(".service:not(.active)").getBoundingClientRect().width + 40;
+
+    // if on mobile, move slide track
+    // because we are starting with position = 2 on mobile, we need to account for the + and - translates above/below the middle point
     if (screen.width <= 900) {
-        if (n === 0) buttonsWrapper.style.transform = `translateX(${buttonWidth * (n + 2)}px)`;
-        else buttonsWrapper.style.transform = `translateX(-${buttonWidth * n}px)`
+        if (n === 0) buttonsWrapper.style.transform = `translateX(${buttonWidth * (n + 2)}px)`
+        else if (n < 2) buttonsWrapper.style.transform = `translateX(${buttonWidth * n}px)`
+        else buttonsWrapper.style.transform = `translateX(-${buttonWidth * (n - 2)}px)`
     }
 
     // remove active class for all buttons & dots

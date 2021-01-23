@@ -1,5 +1,8 @@
-.services {
+.section--services {
   overflow: hidden;
+}
+
+.services {
   display: flex;
   justify-content: center;
   padding: 4rem 0 0;
@@ -25,7 +28,6 @@
   flex-wrap: wrap;
   justify-content: center;
   opacity: .5;
-  transform: scale(.85);
   transition: all .3s;
 
   @include respond(tab-land) {
@@ -113,6 +115,7 @@
   &__image {
     flex: 0 0 100%;
     display: flex; // ensure vertical centering
+    justify-content: center;
     padding: 2rem 1rem;
     position: relative;
     
@@ -125,7 +128,7 @@
 
     &::after {
       content: "";
-      width: 40%;
+      width: 20%;
       height: 0; 
       position: absolute;
       bottom: -5px;
