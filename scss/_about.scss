@@ -63,4 +63,12 @@
     padding: 1.5rem 0 .75rem;
   }
 
+  &__cta {
+    display: none;
+
+    @include respond(desk-small) {
+      display: inline-block;
+    }
+  }
+
 }

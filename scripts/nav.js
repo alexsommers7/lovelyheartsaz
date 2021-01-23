@@ -17,7 +17,7 @@ function updateNav() {
 const navBar = document.querySelector(".intro");
 
 window.onscroll = () => {
-    (window.pageYOffset > 500)
+    (screen.width > 900 && window.pageYOffset > 500)
         ? navBar.classList.add("collapsed")
         : navBar.classList.remove("collapsed");
 };
