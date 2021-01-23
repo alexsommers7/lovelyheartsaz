@@ -1,5 +1,5 @@
 // dom variables
-const buttonsWrapper = document.querySelector(".services");
+const buttonTrack = document.querySelector(".services");
 const buttons = document.querySelectorAll(".service");
 const numButtons = buttons.length;
 const dotContainer = document.querySelector(".carousel__dots");
@@ -48,9 +48,9 @@ function carousel(n) {
     // if on mobile, move slide track
     // because we are starting with position = 2 on mobile, we need to account for the + and - translates above/below the middle point
     if (screen.width <= 900) {
-        if (n === 0) buttonsWrapper.style.transform = `translateX(${buttonWidth * (n + 2)}px)`
-        else if (n < 2) buttonsWrapper.style.transform = `translateX(${buttonWidth * n}px)`
-        else buttonsWrapper.style.transform = `translateX(-${buttonWidth * (n - 2)}px)`
+        if (n === 0) buttonTrack.style.transform = `translateX(${buttonWidth * (n + 2)}px)`
+        else if (n < 2) buttonTrack.style.transform = `translateX(${buttonWidth * n}px)`
+        else buttonTrack.style.transform = `translateX(-${buttonWidth * (n - 2)}px)`
     }
 
     // remove active class for all buttons & dots
@@ -103,3 +103,22 @@ for (let i = 0; i < buttons.length; i++) {
         })
     }
 };
+
+
+// swiping functionality on touchscreen
+let touchstartX = 0;
+let touchendX = 0;
+
+function handleGesture() {
+    if (touchendX < touchstartX) carousel(position + 1);
+    if (touchendX > touchstartX) carousel(position - 1);
+}
+
+buttonTrack.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+});
+
+buttonTrack.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    handleGesture();
+});
