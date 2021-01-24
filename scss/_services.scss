@@ -52,10 +52,6 @@
     color: $color-text;
     font-family: $font-family-main;
     transition: all .5s;
-
-    @include respond(desk-small) {
-      font-size: 2rem;
-    }
   }
 
   &.active {

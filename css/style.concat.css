@@ -1131,9 +1131,6 @@ body.loading {
     color: #707070;
     font-family: "Mulish", sans-serif;
     transition: all .5s; }
-    @media only screen and (min-width: 75em) {
-      .service__heading {
-        font-size: 2rem; } }
   .service.active {
     outline: none;
     opacity: 1;
@@ -1458,6 +1455,22 @@ body.loading {
     border: none;
     cursor: pointer;
     margin: 0 auto; }
+
+.success {
+  min-height: 95vh;
+  background-color: #FDFDFD;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 2.4rem; }
+  .success__message {
+    animation: fade-in 1s ease-out; }
+  .success__text {
+    margin-bottom: 1rem; }
+  .success__link {
+    text-transform: uppercase; }
 
 .footer {
   background-color: #FDFDFD;
