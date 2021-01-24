@@ -84,8 +84,8 @@ function carousel(n) {
 // call function on page load to initalize
 carousel(position);
 
-// autoplay every 7 seconds
-let autoplay = setInterval(() => carousel(position + 1), 7000);
+// autoplay every 5 seconds
+let autoplay = setInterval(() => carousel(position + 1), 5000);
 
 // call carousel function and kill autoplay on click of button/dot/arrow
 for (let i = 0; i < buttons.length; i++) {
