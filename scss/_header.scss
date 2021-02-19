@@ -23,7 +23,8 @@
     align-items: center;
     overflow: hidden;
     align-content: flex-start;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     @include respond(tab-land) {
       flex-direction: row;
@@ -83,7 +84,6 @@
 
   &__img {
     position: absolute;
-    object-position: center;
     border-radius: 3px;
 
     &.yAxis {

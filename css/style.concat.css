@@ -608,7 +608,8 @@ div.fadeDelayLong {
     align-items: center;
     overflow: hidden;
     align-content: flex-start;
-    flex-direction: column; }
+    flex-direction: row;
+    flex-wrap: wrap; }
     @media only screen and (min-width: 56.25em) {
       .header__row {
         flex-direction: row;
@@ -652,7 +653,6 @@ div.fadeDelayLong {
         flex: 0 0 50%; } }
   .header__img {
     position: absolute;
-    object-position: center;
     border-radius: 3px; }
     .header__img.yAxis::before {
       height: 0;
