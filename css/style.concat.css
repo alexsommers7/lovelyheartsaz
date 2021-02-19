@@ -612,7 +612,6 @@ div.fadeDelayLong {
     flex-wrap: wrap; }
     @media only screen and (min-width: 56.25em) {
       .header__row {
-        flex-direction: row;
         align-content: normal; } }
     @media only screen and (min-width: 87.5em) {
       .header__row {

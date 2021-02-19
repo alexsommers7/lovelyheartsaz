@@ -27,7 +27,6 @@
     flex-wrap: wrap;
 
     @include respond(tab-land) {
-      flex-direction: row;
       align-content: normal;
     }
 
