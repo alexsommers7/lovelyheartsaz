@@ -1,85 +1,90 @@
 .button {
-    color: #fff;
-    font-family: $font-family-main;
-    background-color: $color-primary;
-    font-size: 1.6rem;
-    padding: .75rem 2.5rem;
-    margin: 1.5rem auto;
-    border-radius: 100px;
-    text-decoration: none;
-    transition: all .3s;
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block;
+  color: #fff;
+  font-family: $font-family-main;
+  background-color: $color-primary;
+  font-size: 1.6rem;
+  padding: 0.75rem 2.5rem;
+  margin: 1.5rem auto;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
 
-    &:hover{
-        background-color: rgba($color-primary, .8);
-    }
+  &:hover {
+    background-color: rgba($color-primary, 0.8);
+  }
 }
 
 // override auto phone number styling
 a[href^="tel"] {
-    color: inherit;
-    text-decoration: none;
-  }
+  color: inherit;
+  text-decoration: none;
+}
 
 .heading {
-    font-family: $font-family-heading;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.3;
+  font-family: $font-family-heading;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.3;
 
-    &--1 {
-        font-weight: 500;
-        font-size: 4.8rem;
+  &--1 {
+    font-weight: 500;
+    font-size: 4.8rem;
 
-        @include respond(desk-small) {
-            font-size: 6rem;
-        }
+    @include respond(desk-small) {
+      font-size: 6rem;
     }
+  }
 
-    &--2 {
-        font-weight: 400;
-        font-size: 3rem;
-    }
+  &--2 {
+    font-weight: 400;
+    font-size: 3rem;
+  }
 
-    &--3 {
-        font-weight: 200;
-        font-size: 3rem;
-        position: relative;
-    }
+  &--3 {
+    font-weight: 200;
+    font-size: 3rem;
+    position: relative;
+  }
 
-    &--4 {
-        text-align: left;
-        font-weight: 200;
-        font-size: 2.4rem;
-    }
+  &--4 {
+    text-align: left;
+    font-weight: 200;
+    font-size: 2.4rem;
+  }
 
-    &--primary {
-        color: $color-primary;
-    }
+  &--primary {
+    color: $color-primary;
+  }
 
-    &--secondary {
-        color: $color-secondary;
-    }
+  &--secondary {
+    color: $color-secondary;
+  }
+
+  &--white {
+    font-weight: 200;
+    color: $color-background;
+  }
 }
 
 .disclaimer {
-    padding: 2rem;
+  padding: 2rem;
 
-    @include respond(tab-port) {
-        max-width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  @include respond(tab-port) {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    @include respond(tab-land) {
-        max-width: 65%;
-    }
+  @include respond(tab-land) {
+    max-width: 65%;
+  }
 
-    @include respond(desk-medium) {
-        text-align: center;
-    }
+  @include respond(desk-medium) {
+    text-align: center;
+  }
 }
 
 // Type scale @ root size 62.5%

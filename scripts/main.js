@@ -1,11 +1,3 @@
-// LOADING ANIMATION
-let body = document.querySelector("body");
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(function () {
-    body.classList.remove("loading");
-  }, 2000);
-});
-
 // INTERSECTION OBSERVER API - FADE ON SCROLL
 const observerOptions = {
   root: null, // Null = use viewport as root
