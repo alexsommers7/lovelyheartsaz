@@ -635,6 +635,7 @@ div.fadeDelayLong {
         flex: 0 0 40%; } }
   .header__images {
     justify-content: center;
+    align-items: center;
     position: relative;
     padding-top: 75%;
     flex: 0 0 100%;
