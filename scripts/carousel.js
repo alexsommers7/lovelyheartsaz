@@ -93,30 +93,3 @@ for (let i = 0; i < buttons.length; i++) {
     });
   }
 }
-
-// swiping functionality on touchscreen
-let touchstartX = 0;
-let touchendX = 0;
-
-function handleGesture() {
-  if (touchendX < touchstartX) carousel(position + 1);
-  if (touchendX > touchstartX) carousel(position - 1);
-}
-
-buttonTrack.addEventListener(
-  "touchstart",
-  (e) => {
-    touchstartX = e.changedTouches[0].screenX;
-  },
-  { passive: true }
-);
-
-buttonTrack.addEventListener(
-  "touchend",
-  (e) => {
-    touchendX = e.changedTouches[0].screenX;
-    handleGesture();
-    clearInterval(autoplay);
-  },
-  { passive: true }
-);
