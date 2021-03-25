@@ -803,14 +803,17 @@ div.fadeDelayLong {
 
 .services {
   display: flex;
-  justify-content: center;
   padding: 4rem 0 0;
   transform-style: preserve-3d;
-  transition: all .5s; }
+  max-width: 240px;
+  margin: auto;
+  transition: all 0.5s; }
   @media only screen and (min-width: 56.25em) {
     .services {
       justify-content: space-around;
-      padding-bottom: 6rem; } }
+      padding-bottom: 6rem;
+      max-width: none;
+      margin: 0; } }
 
 .service {
   flex: 0 0 200px;
@@ -819,37 +822,36 @@ div.fadeDelayLong {
   background-color: #FDFDFD;
   cursor: pointer;
   padding: 0 0 1.25rem;
-  margin: 0 2rem;
+  margin: 0 20px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: .5;
-  transition: all .3s; }
+  opacity: 0.5;
+  transition: all 0.3s; }
   @media only screen and (min-width: 56.25em) {
     .service {
       flex: 0 0 18%;
       padding: 0 0 1.25rem;
       margin: 0;
       opacity: 1;
-      animation: carousel-move-in-up .5s forwards ease-in-out; } }
+      animation: carousel-move-in-up 0.5s forwards ease-in-out; } }
   .service picture {
-    transition: all .175s ease-in-out; }
+    transition: all 0.175s ease-in-out; }
   .service__image {
-    transition: all .5s; }
+    transition: all 0.5s; }
   .service__heading {
     text-align: center;
     font-size: 1.6rem;
     color: #707070;
     font-family: "Mulish", sans-serif;
-    transition: all .5s; }
+    transition: all 0.5s; }
   .service.active {
     outline: none;
-    opacity: 1;
-    transform: scale(1.1); }
+    opacity: 1; }
     @media only screen and (min-width: 56.25em) {
       .service.active {
-        animation: carousel-fade-in-down .5s forwards ease-in-out;
+        animation: carousel-fade-in-down 0.5s forwards ease-in-out;
         transform: scale(1) translateY(1.5rem); } }
     .service.active picture {
       opacity: 0;
@@ -858,7 +860,7 @@ div.fadeDelayLong {
     @media only screen and (min-width: 37.5em) {
       .service.active::after {
         content: "";
-        transition: all .5s;
+        transition: all 0.5s;
         width: 0;
         height: 0;
         position: absolute;
@@ -868,7 +870,7 @@ div.fadeDelayLong {
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
         border-top: 20px solid rgba(112, 112, 112, 0.25);
-        animation: fade-in .5s forwards ease-in-out; } }
+        animation: fade-in 0.5s forwards ease-in-out; } }
 
 .carousel {
   max-width: 1100px;
@@ -945,7 +947,7 @@ div.fadeDelayLong {
     border-radius: 100px;
     background-color: rgba(112, 112, 112, 0.35);
     cursor: pointer;
-    transition: all .5s; }
+    transition: all 0.5s; }
     .carousel__dot.active {
       background-color: #707070; }
   .carousel__arrow {

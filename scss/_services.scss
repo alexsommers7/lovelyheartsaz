@@ -4,14 +4,17 @@
 
 .services {
   display: flex;
-  justify-content: center;
   padding: 4rem 0 0;
   transform-style: preserve-3d;
-  transition: all .5s;
-  
+  max-width: 240px;
+  margin: auto;
+  transition: all 0.5s;
+
   @include respond(tab-land) {
     justify-content: space-around;
     padding-bottom: 6rem;
+    max-width: none;
+    margin: 0;
   }
 }
 
@@ -22,28 +25,28 @@
   background-color: $color-background;
   cursor: pointer;
   padding: 0 0 1.25rem;
-  margin: 0 2rem;
+  margin: 0 20px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: .5;
-  transition: all .3s;
+  opacity: 0.5;
+  transition: all 0.3s;
 
   @include respond(tab-land) {
     flex: 0 0 18%;
     padding: 0 0 1.25rem;
     margin: 0;
     opacity: 1;
-    animation: carousel-move-in-up .5s forwards ease-in-out;
+    animation: carousel-move-in-up 0.5s forwards ease-in-out;
   }
 
   & picture {
-    transition: all .175s ease-in-out;
+    transition: all 0.175s ease-in-out;
   }
-  
+
   &__image {
-    transition: all .5s;
+    transition: all 0.5s;
   }
 
   &__heading {
@@ -51,16 +54,16 @@
     font-size: 1.6rem;
     color: $color-text;
     font-family: $font-family-main;
-    transition: all .5s;
+    transition: all 0.5s;
   }
 
   &.active {
     outline: none;
     opacity: 1;
-    transform: scale(1.1);
+    // transform: scale(1.1);
 
     @include respond(tab-land) {
-      animation: carousel-fade-in-down .5s forwards ease-in-out;
+      animation: carousel-fade-in-down 0.5s forwards ease-in-out;
       transform: scale(1) translateY(1.5rem);
     }
 
@@ -71,20 +74,19 @@
     }
 
     &::after {
-
       @include respond(tab-port) {
         content: "";
-        transition: all .5s;
-        width: 0; 
-        height: 0; 
+        transition: all 0.5s;
+        width: 0;
+        height: 0;
         position: absolute;
         bottom: -2rem;
         left: 50%;
         transform: translateX(-50%);
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
-        border-top: 20px solid rgba($color-text, .25);
-        animation: fade-in .5s forwards ease-in-out;
+        border-top: 20px solid rgba($color-text, 0.25);
+        animation: fade-in 0.5s forwards ease-in-out;
       }
     }
   }
@@ -102,7 +104,7 @@
   align-items: center;
   position: relative;
   order: 3;
-  
+
   @include respond(tab-land) {
     order: 2;
     padding: 3rem;
@@ -114,7 +116,7 @@
     justify-content: center;
     padding: 2rem 1rem;
     position: relative;
-    
+
     @include respond(tab-land) {
       flex: 0 0 40%;
       border-right: 5px solid $color-primary;
@@ -125,7 +127,7 @@
     &::after {
       content: "";
       width: 20%;
-      height: 0; 
+      height: 0;
       position: absolute;
       bottom: -5px;
       left: 50%;
@@ -141,7 +143,7 @@
   &__text {
     flex: 0 0 100%;
     padding: 2rem 1rem;
-    
+
     @include respond(tab-land) {
       flex: 0 0 40%;
       margin-left: 5%;
@@ -179,9 +181,9 @@
     height: 1rem;
     margin: 0 4px;
     border-radius: 100px;
-    background-color: rgba($color-text, .35);
+    background-color: rgba($color-text, 0.35);
     cursor: pointer;
-    transition: all .5s;
+    transition: all 0.5s;
 
     &.active {
       background-color: $color-text;
@@ -201,11 +203,11 @@
     transform: translateY(-50%);
 
     &--left {
-        left: 0;
+      left: 0;
     }
 
     &--right {
-        right: 0;
+      right: 0;
     }
 
     & .icon {
@@ -215,5 +217,4 @@
       display: inline-block;
     }
   }
-
 }
