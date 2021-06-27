@@ -39,6 +39,10 @@
     margin: 0;
     opacity: 1;
     animation: carousel-move-in-up 0.5s forwards ease-in-out;
+
+    @include motionless {
+      opacity: 1;
+    }
   }
 
   & picture {

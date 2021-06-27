@@ -27,8 +27,21 @@ body {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     body > *:not(.ie-alert) {
       display: none !important; } }
+  @media (prefers-reduced-motion) {
+    body * {
+      animation: none !important;
+      transition: all 0s !important; } }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0; }
 
@@ -633,6 +646,10 @@ div.fadeDelayLong {
       .header__text {
         padding: 0;
         flex: 0 0 40%; } }
+    @media (prefers-reduced-motion) {
+      .header__text {
+        opacity: 1;
+        transform: translateX(0); } }
   .header__images {
     justify-content: center;
     align-items: center;
@@ -665,10 +682,17 @@ div.fadeDelayLong {
       background-color: #FDFDFD;
       position: absolute;
       z-index: 100; }
+      @media (prefers-reduced-motion) {
+        .header__img::before {
+          display: none; } }
     .header__img img {
       width: 100%;
       height: 100%;
       animation: imgReveal 3.5s linear forwards; }
+      @media (prefers-reduced-motion) {
+        .header__img img {
+          opacity: 1;
+          visibility: visible !important; } }
     .header__img--1 {
       width: 30%;
       height: 40%;
@@ -836,6 +860,9 @@ div.fadeDelayLong {
       margin: 0;
       opacity: 1;
       animation: carousel-move-in-up 0.5s forwards ease-in-out; } }
+  @media only screen and (min-width: 56.25em) and (prefers-reduced-motion) {
+    .service {
+      opacity: 1; } }
   .service picture {
     transition: all 0.175s ease-in-out; }
   .service__image {
