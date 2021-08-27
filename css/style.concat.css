@@ -1248,7 +1248,7 @@ div.fadeDelayLong {
   .footer__icon {
     width: 2rem;
     height: 2rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     fill: #707070; }
 
 .copyright {
@@ -1257,3 +1257,5 @@ div.fadeDelayLong {
   @media only screen and (min-width: 56.25em) {
     .copyright {
       margin-top: 1.5rem; } }
+  .copyright a {
+    color: inherit; }
