@@ -1,334 +1,331 @@
 // NAV
 .intro {
-    width: 100%;
-    background-color: $color-background;
-    position: fixed;
-    top: 0;
-    z-index: 500;
-    box-shadow: $design-box-shadow-default;
-    transition: all .5s ease-in-out;
+  width: 100%;
+  background-color: $color-background;
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  box-shadow: $design-box-shadow-default;
+  transition: all 0.5s ease-in-out;
 
-    &__top {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: relative;
+  &__top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+  }
+
+  &__logo,
+  &__contact {
+    padding: 0 2rem;
+  }
+
+  &__logo {
+    & img {
+      width: 6rem;
+      height: 6rem;
+      padding: 10px;
+    }
+  }
+
+  &__contact {
+    display: none;
+
+    @include respond(tab-land) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // collapse to one line at specified scroll depth
+  &.collapsed {
+    animation: navAnimate 1s;
+
+    @include respond(desk-small) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      max-height: 8rem;
     }
 
-    &__logo,
-    &__contact {
-        padding: 0 2rem;
+    & .intro__contact {
+      display: none;
     }
-
-    &__logo {
-
-        & img {
-            width: 8rem;
-            height: 8rem;
-            padding: 10px;
-        }
-    }
-
-    &__contact {
-        display: none;
-
-        @include respond(tab-land) {
-            display: flex;
-            align-items: center;
-        }
-    }
-
-    // collapse to one line at specified scroll depth
-    &.collapsed {
-        animation: navAnimate 1s;
-
-        @include respond(desk-small) {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-height: 8rem;
-        }
-
-        & .intro__contact {
-            display: none;
-        }
-    }
+  }
 }
 
 .contact {
+  &__method {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
 
-    &__method {
-        display: flex;
-        align-items: center;
-        font-size: 1.6rem;
-
-        &:not(:last-child) {
-            margin-right: 5rem;
-        }
+    &:not(:last-child) {
+      margin-right: 5rem;
     }
+  }
 
-    &__icon {
-        width: 3.5rem;
-        height: 3.5rem;
-        fill: $color-secondary;
-        opacity: 1;
-        display: inline-block;
-        margin-right: .7rem;
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: $color-secondary;
+    opacity: 1;
+    display: inline-block;
+    margin-right: 0.7rem;
 
-        &--mail {
-            margin-right: 1.1rem;
-        }
+    &--mail {
+      margin-right: 1.1rem;
     }
-
+  }
 }
 
 .nav {
+  &__list {
+    width: 100%;
+    // background-color: $color-background-light-grey;
+    background-color: $color-primary;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    align-self: stretch;
+    overflow: hidden;
+    z-index: 200;
+    transition: all 0.65s cubic-bezier(0.68, -0.6, 0.32, 1.4);
 
-    &__list {
-        width: 100%;
-        // background-color: $color-background-light-grey;
-        background-color: $color-primary;
-        list-style: none;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: absolute;
-        align-self: stretch;
-        overflow: hidden;
-        z-index: 200;
-        transition: all .65s cubic-bezier(0.68, -0.6, 0.32, 1.4);
+    &.nav-closed {
+      visibility: hidden;
+      opacity: 0;
+      right: -50%;
 
-        &.nav-closed {
-            visibility: hidden;
-            opacity: 0;
-            right: -50%;
-
-            @include respond(desk-small) {
-                visibility: visible;
-                opacity: 1;
-                right: 0;
-            }
-        }
-
-        &.nav-open {
-            visibility: visible;
-            opacity: 1;
-            right: 0;
-        }
-
-        @include respond(tab-port) {
-            width: 50%;
-        }
-
-        @include respond(desk-small) {
-            width: 100%;
-            background-color: transparent;
-            flex-direction: row;
-            position: relative;
-            height: auto;
-            visibility: visible;
-            opacity: 1;
-        }
+      @include respond(desk-small) {
+        visibility: visible;
+        opacity: 1;
+        right: 0;
+      }
     }
 
-    &__item {
-        margin: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 200;
-        
-        &:nth-child(odd)::after,
-        &:nth-child(odd)::before,
-        &:last-child::after {
-            display: none;
-
-            @include respond(desk-small) {
-                content: "";
-                height: 20px;
-                width: 1px;
-                border-right: 1px solid rgba($color-text, .5);
-                display: inline-block;
-            }
-        }
-
-        &:last-child::after {
-
-            @include respond(desk-small) {
-                margin-left: 17px;
-            }
-            
-        }
+    &.nav-open {
+      visibility: visible;
+      opacity: 1;
+      right: 0;
     }
 
-    &__link {
-
-        &:link,
-        &:visited {
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-            color: #fff;
-            padding: 1rem 5rem;
-            font-size: 2rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            transition: all .25s ease-in-out;
-
-            @include respond(desk-small) {
-                color: $color-text;
-            }
-        }
-
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 50%;
-            bottom: 2px;
-            left: 50%;
-            transform: scaleX(0) translateX(-50%);
-            transform-origin: left;
-            border-bottom: 1px solid rgba(#fff, .75);
-            transition: all .25s ease-in-out;
-
-            @include respond(desk-small) {
-                border-bottom: 1px solid $color-primary;
-            }
-        }
-
-        &:hover,
-        &:active,
-        &.current {
-            color: rgba(#fff, .75);
-
-            @include respond(desk-small) {
-                color: $color-primary;
-            }
-
-            &::after {
-                transform: scaleX(1) translateX(-50%);
-            }
-        }
+    @include respond(tab-port) {
+      width: 50%;
     }
 
+    @include respond(desk-small) {
+      width: 100%;
+      background-color: transparent;
+      flex-direction: row;
+      position: relative;
+      height: auto;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 
-    // FUNCTIONALITY
+  &__item {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
 
-    &__button {
-        appearance: none;
-        border: none;
-        height: 6.5rem;
-        width: 6.5rem;
-        margin-left: auto;
-        margin-right: 8px;
-        background-color: transparent;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: all .3s;
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 .3rem rgba(0,0,0, .5);
-
-            & .nav__icon::before {
-                top: -.975rem;
-            }
-
-            & .nav__icon::after {
-                top: .975rem;
-            }
-        }
-
-        @include respond(desk-small) {
-            display: none;
-        }
+    @include respond(desk-small) {
+      margin: 0.3rem 1rem 0.3rem;
     }
 
-    // HAMBURGER ICON 
-    &__icon {
-        position: relative;
-        margin-top: 2px;
+    &:nth-child(odd)::after,
+    &:nth-child(odd)::before,
+    &:last-child::after {
+      display: none;
 
-        &,
-        &::before,
-        &::after {
-            width: 3rem;
-            height: 2px;
-            background-color: $color-text;
-            display: inline-block;
-            z-index: 3000;
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            transition: all .3s ease-in-out;
-        }
-
-        &::before {
-            top: -.875rem;
-        }
-
-        &::after {
-            top: .875rem;
-        }
-
+      @include respond(desk-small) {
+        content: '';
+        height: 20px;
+        width: 1px;
+        border-right: 1px solid rgba($color-text, 0.5);
+        display: inline-block;
+      }
     }
 
-    // HOVER EFFECT
-    &__button:hover &__icon::before { // Hamburger bars spreading apart on hover
-        top: -.975rem;
+    &:last-child::after {
+      @include respond(desk-small) {
+        margin-left: 17px;
+      }
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      color: #fff;
+      padding: 1rem 5rem;
+      font-size: 1.6rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      transition: all 0.25s ease-in-out;
+
+      @include respond(desk-small) {
+        color: $color-text;
+      }
     }
 
-    &__button:hover &__icon::after { // Hamburger bars spreading apart on hover
-        top: .975rem;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 50%;
+      bottom: 2px;
+      left: 50%;
+      transform: scaleX(0) translateX(-50%);
+      transform-origin: left;
+      border-bottom: 1px solid rgba(#fff, 0.75);
+      transition: all 0.25s ease-in-out;
+
+      @include respond(desk-small) {
+        border-bottom: 1px solid $color-primary;
+      }
     }
 
-    // X ON-CLICK ICON EFFECT
-    &__button.nav-open .nav__icon {
-        background-color: transparent; // Hide the middle bar, while maintaing its size since the psuedo elements depend on it
+    &:hover,
+    &:active,
+    &.current {
+      color: rgba(#fff, 0.75);
+
+      @include respond(desk-small) {
+        color: $color-primary;
+      }
+
+      &::after {
+        transform: scaleX(1) translateX(-50%);
+      }
+    }
+  }
+
+  // FUNCTIONALITY
+
+  &__button {
+    appearance: none;
+    border: none;
+    height: 6.5rem;
+    width: 6.5rem;
+    margin-left: auto;
+    margin-right: 8px;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+
+      & .nav__icon::before {
+        top: -0.975rem;
+      }
+
+      & .nav__icon::after {
+        top: 0.975rem;
+      }
     }
 
-    &__button.nav-open .nav__icon::before { // Rotate the top bar to form one half of the X
-        transform: rotate(135deg);
-        top: 0;
+    @include respond(desk-small) {
+      display: none;
+    }
+  }
+
+  // HAMBURGER ICON
+  &__icon {
+    position: relative;
+    margin-top: 2px;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-text;
+      display: inline-block;
+      z-index: 3000;
     }
 
-    &__button.nav-open .nav__icon::after { // Rotate the bottom bar to form the other half of the X
-        transform: rotate(-135deg);
-        top: 0;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease-in-out;
     }
 
+    &::before {
+      top: -0.875rem;
+    }
+
+    &::after {
+      top: 0.875rem;
+    }
+  }
+
+  // HOVER EFFECT
+  &__button:hover &__icon::before {
+    // Hamburger bars spreading apart on hover
+    top: -0.975rem;
+  }
+
+  &__button:hover &__icon::after {
+    // Hamburger bars spreading apart on hover
+    top: 0.975rem;
+  }
+
+  // X ON-CLICK ICON EFFECT
+  &__button.nav-open .nav__icon {
+    background-color: transparent; // Hide the middle bar, while maintaing its size since the psuedo elements depend on it
+  }
+
+  &__button.nav-open .nav__icon::before {
+    // Rotate the top bar to form one half of the X
+    transform: rotate(135deg);
+    top: 0;
+  }
+
+  &__button.nav-open .nav__icon::after {
+    // Rotate the bottom bar to form the other half of the X
+    transform: rotate(-135deg);
+    top: 0;
+  }
 }
 
 @keyframes navAnimate {
-    0% {
-        top: -100%;
-        opacity: 0;
-    }
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
 
-
-    100% {
-        top: 0;
-        opacity: 1;
-    }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 // vertical offset for anchor links
 .anchor-span {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    top: 0 - ($sticky-nav-height-small);
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  top: 0 - ($sticky-nav-height-small);
 
-    @include respond(desk-small) {
-       top: 0 - ($sticky-nav-height-large) + 95;
-    }
+  @include respond(desk-small) {
+    top: 0 - ($sticky-nav-height-large) + 95;
+  }
 }
