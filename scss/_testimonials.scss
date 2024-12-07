@@ -1,76 +1,73 @@
-@use "mixins";
-@use "variables";
+@use 'mixins';
+@use 'variables';
 
 .section--testimonials {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .testimonials {
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding-top: 4rem;
-  margin: auto;
+	max-width: 1200px;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 2.5rem;
+	padding-top: 4rem;
+	margin: auto;
 
-  @include mixins.respond(tab-land) {
-    padding: 5rem 0 2rem;
-  }
+	@include mixins.respond(tab-land) {
+		padding: 5rem 0 2rem;
+	}
 }
 
 .testimonial {
-  color: variables.$color-text;
-  padding: 6rem 3rem 3rem;
-  position: relative;
-  background-color: variables.$color-background-light-grey;
-  overflow: hidden;
-  flex: 0 0 100%;
+	color: variables.$color-text;
+	padding: 6rem 3rem 3rem;
+	position: relative;
+	background-color: variables.$color-background-light-grey;
+	overflow: hidden;
+	flex: 1 0 100%;
 
-  &:not(:first-child) {
-    margin-top: 4rem;
+	p:not(:last-of-type) {
+		margin-bottom: 1rem;
+	}
 
-    @include mixins.respond(tab-land) {
-      margin-top: 0;
-    }
-  }
+	@include mixins.respond(tab-port) {
+		padding: 3rem;
+	}
 
-  @include mixins.respond(tab-port) {
-    padding: 3rem;
-  }
+	@include mixins.respond(tab-land) {
+		flex-basis: 45%;
+		margin: 0;
+	}
 
-  @include mixins.respond(tab-land) {
-    flex: 0 0 45%;
-    margin: 0;
-  }
+	&::before {
+		content: '\201c';
+		position: absolute;
+		left: -1.25rem;
+		top: -3.5rem;
+		font-size: 30rem;
+		color: #fff;
+		line-height: 1;
+		font-family: sans-serif;
+	}
 
-  &::before {
-    content: "\201c";
-    position: absolute;
-    left: -1.25rem;
-    top: -3.5rem;
-    font-size: 30rem;
-    color: #fff;
-    line-height: 1; 
-    font-family: sans-serif;
-  }
+	&__name,
+	&__company,
+	&__location {
+		text-align: center;
+	}
 
-  &__name,
-  &__company,
-  &__location {
-    text-align: center;
-  }
+	&__name {
+		font-weight: 600;
+	}
 
-  &__name {
-    font-weight: 600;
-  } 
+	&__location {
+		font-style: italic;
+		font-size: 1.2rem;
+	}
 
-  &__location {
-    font-style: italic;
-    font-size: 1.2rem;
-  }
-
-  &__text {
-    margin: 0;
-    padding: 2rem 0 0;
-  }
+	&__text {
+		margin: 0;
+		padding: 2rem 0 0;
+	}
 }
