@@ -1,3 +1,5 @@
+@use "mixins";
+
 // intersection observer declarations
 .fade {
   transition: opacity 0.75s ease-in-out, transform 0.75s ease-in-out, background-color 0.3s ease-in-out,
@@ -50,7 +52,7 @@ div.fadeDelayShort {
     color 0.3s ease-in-out, border 0.3s ease-in-out;
 
   // Remove delay once stacked
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     transition: opacity 0.75s ease-in, transform 0.75s ease-in, background-color 0.3s ease-in-out,
       color 0.3s ease-in-out, border 0.3s ease-in-out;
   }
@@ -62,7 +64,7 @@ div.fadeDelayLong {
     color 0.3s ease-in-out, border 0.3s ease-in-out;
 
   // Remove delay once stacked
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     transition: opacity 0.75s ease-in, transform 0.75s ease-in, background-color 0.3s ease-in-out,
       color 0.3s ease-in-out, border 0.3s ease-in-out;
   }

@@ -1,6 +1,8 @@
+@use "variables";
+
 .success {
     min-height: 95vh;
-    background-color: $color-background;
+    background-color: variables.$color-background;
     text-align: center;
     display: flex;
     align-items: center;

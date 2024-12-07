@@ -1,3 +1,5 @@
+@use "mixins";
+
 .about {
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       margin: 0;
     }
   }
@@ -20,7 +22,7 @@
     background-repeat: repeat;
     margin-bottom: 2rem;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       order: 0;
       flex: 0 1 44%;
       justify-content: flex-start;
@@ -37,7 +39,7 @@
       margin-left: 7%;
       margin-top: 3%;
 
-      @include respond(desk-small) {
+      @include mixins.respond(desk-small) {
         margin-left: 25%;
       }
     }
@@ -49,12 +51,12 @@
     padding: 0;
     margin: 0 0 4rem;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       flex: 1 0 30%;
       padding: 0 8% 0 15%;
     }
 
-    @include respond(desk-medium) {
+    @include mixins.respond(desk-medium) {
       padding: 0 12% 0 15%;
     }
   }
@@ -66,7 +68,7 @@
   &__cta {
     display: none;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       display: inline-block;
     }
   }

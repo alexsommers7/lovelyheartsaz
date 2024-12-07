@@ -1,10 +1,13 @@
+@use "mixins";
+@use "variables";
+
 .section--feature {
   background-image: url(/img/feature--background-mobile.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     background-image: url(/img/feature--background.jpg);
   }
 }
@@ -18,16 +21,16 @@
     flex: 0 0 80%;
     margin: 4rem auto;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       flex: 0 0 50%;
     }
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex: 0 0 30%;
       margin: 0;  
     }
 
-    @include respond(desk-medium) {
+    @include mixins.respond(desk-medium) {
       flex: 0 0 20%;
     }
   }
@@ -36,14 +39,14 @@
     flex: 0 0 100%;
     padding: 0 1rem;
 
-    @include respond(tab-land) {
-      border-left: 5px solid $color-primary;
+    @include mixins.respond(tab-land) {
+      border-left: 5px solid variables.$color-primary;
       flex: 0 0 45%;
       margin-left: 3rem;
       padding: 2rem 3rem;
     }
 
-    @include respond(desk-medium) {
+    @include mixins.respond(desk-medium) {
       flex: 0 0 40%;
     }
   }

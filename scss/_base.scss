@@ -1,13 +1,16 @@
+@use "mixins";
+@use "variables";
+
 // BASE SETUP
 html {
   box-sizing: border-box;
   font-size: 62.5%;
 
-  @include respond(desk-small) {
+  @include mixins.respond(desk-small) {
     font-size: 66.75%;
   }
 
-  @include respond(desk-xlarge) {
+  @include mixins.respond(desk-xlarge) {
     font-size: 80%;
   }
 }
@@ -19,27 +22,27 @@ html {
 }
 
 ::selection {
-  background: $color-highlight;
-  color: $color-highlight-text;
+  background: variables.$color-highlight;
+  color: variables.$color-highlight-text;
 }
 
 body {
-  font-family: $font-family-main;
-  font-weight: $font-weight-default;
+  font-family: variables.$font-family-main;
+  font-weight: variables.$font-weight-default;
   line-height: 1.6;
-  color: $color-text;
-  background-color: $color-background;
+  color: variables.$color-text;
+  background-color: variables.$color-background;
   overflow-x: hidden;
 
   // hide all but outdated browser alert on ie
   & > *:not(.ie-alert) {
-    @include ieOnly {
+    @include mixins.ieOnly {
       display: none !important;
     }
   }
 
   & * {
-    @include motionless {
+    @include mixins.motionless {
       animation: none !important;
       transition: all 0s !important;
     }
@@ -64,13 +67,13 @@ img {
   max-width: 100%;
   height: auto;
   transition: all 1s;
-  border-radius: $design-border-radius-default;
+  border-radius: variables.$design-border-radius-default;
   object-fit: cover;
 }
 
 section {
-  padding: $layout-section-padding-small;
-  max-width: $layout-max-width;
+  padding: variables.$layout-section-padding-small;
+  max-width: variables.$layout-max-width;
   font-size: 1.6rem;
   position: relative;
   display: flex;
@@ -80,22 +83,22 @@ section {
   margin-right: auto;
 
   &:nth-child(even) {
-    background-color: $color-background-light-grey;
+    background-color: variables.$color-background-light-grey;
   }
 
-  @include respond(tab-land) {
-    padding: $layout-section-padding-medium;
+  @include mixins.respond(tab-land) {
+    padding: variables.$layout-section-padding-medium;
   }
 
-  @include respond(desk-small) {
-    padding: $layout-section-padding-large;
+  @include mixins.respond(desk-small) {
+    padding: variables.$layout-section-padding-large;
   }
 }
 
 .ie-alert {
   display: none;
 
-  @include ieOnly {
+  @include mixins.ieOnly {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -108,6 +111,6 @@ section {
     max-width: 900px;
     margin: auto;
     padding: 2rem;
-    background-color: $color-background;
+    background-color: variables.$color-background;
   }
 }

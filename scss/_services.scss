@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 .section--services {
   overflow: hidden;
 }
@@ -10,7 +13,7 @@
   margin: auto;
   transition: all 0.5s;
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     justify-content: space-around;
     padding-bottom: 6rem;
     max-width: none;
@@ -22,7 +25,7 @@
   flex: 0 0 200px;
   max-width: 100%;
   border: none;
-  background-color: $color-background;
+  background-color: variables.$color-background;
   cursor: pointer;
   padding: 0 0 1.25rem;
   margin: 0 20px;
@@ -33,14 +36,14 @@
   opacity: 0.5;
   transition: all 0.3s;
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     flex: 0 0 18%;
     padding: 0 0 1.25rem;
     margin: 0;
     opacity: 1;
     animation: carousel-move-in-up 0.5s forwards ease-in-out;
 
-    @include motionless {
+    @include mixins.motionless {
       opacity: 1;
     }
   }
@@ -56,8 +59,8 @@
   &__heading {
     text-align: center;
     font-size: 1.6rem;
-    color: $color-text;
-    font-family: $font-family-main;
+    color: variables.$color-text;
+    font-family: variables.$font-family-main;
     transition: all 0.5s;
   }
 
@@ -66,7 +69,7 @@
     opacity: 1;
     // transform: scale(1.1);
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       animation: carousel-fade-in-down 0.5s forwards ease-in-out;
       transform: scale(1) translateY(1.5rem);
     }
@@ -78,7 +81,7 @@
     }
 
     &::after {
-      @include respond(tab-port) {
+      @include mixins.respond(tab-port) {
         content: "";
         transition: all 0.5s;
         width: 0;
@@ -89,7 +92,7 @@
         transform: translateX(-50%);
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
-        border-top: 20px solid rgba($color-text, 0.25);
+        border-top: 20px solid rgba(variables.$color-text, 0.25);
         animation: fade-in 0.5s forwards ease-in-out;
       }
     }
@@ -100,8 +103,8 @@
   max-width: 1100px;
   margin: auto;
   padding: 0 1rem;
-  background-color: $color-background;
-  border-radius: $design-border-radius-default;
+  background-color: variables.$color-background;
+  border-radius: variables.$design-border-radius-default;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -109,7 +112,7 @@
   position: relative;
   order: 3;
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     order: 2;
     padding: 3rem;
   }
@@ -121,9 +124,9 @@
     padding: 2rem 1rem;
     position: relative;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex: 0 0 40%;
-      border-right: 5px solid $color-primary;
+      border-right: 5px solid variables.$color-primary;
       border-bottom: none;
       padding: 0 5% 0 0;
     }
@@ -136,9 +139,9 @@
       bottom: -5px;
       left: 50%;
       transform: translateX(-50%);
-      border: 2px solid $color-primary;
+      border: 2px solid variables.$color-primary;
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         display: none;
       }
     }
@@ -148,7 +151,7 @@
     flex: 0 0 100%;
     padding: 2rem 1rem;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex: 0 0 40%;
       margin-left: 5%;
       padding: 2rem 0;
@@ -164,7 +167,7 @@
     margin: 5rem auto 4rem;
     order: 2;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       margin: 7rem auto 2rem;
       order: 3;
     }
@@ -185,12 +188,12 @@
     height: 1rem;
     margin: 0 4px;
     border-radius: 100px;
-    background-color: rgba($color-text, 0.35);
+    background-color: rgba(variables.$color-text, 0.35);
     cursor: pointer;
     transition: all 0.5s;
 
     &.active {
-      background-color: $color-text;
+      background-color: variables.$color-text;
     }
   }
 
@@ -217,7 +220,7 @@
     & .icon {
       width: 2.5rem;
       height: 2.5rem;
-      fill: $color-text;
+      fill: variables.$color-text;
       display: inline-block;
     }
   }

@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 .section--testimonials {
   margin-top: 0;
 }
@@ -10,32 +13,32 @@
   padding-top: 4rem;
   margin: auto;
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     padding: 5rem 0 2rem;
   }
 }
 
 .testimonial {
-  color: $color-text;
+  color: variables.$color-text;
   padding: 6rem 3rem 3rem;
   position: relative;
-  background-color: $color-background-light-grey;
+  background-color: variables.$color-background-light-grey;
   overflow: hidden;
   flex: 0 0 100%;
 
   &:not(:first-child) {
     margin-top: 4rem;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       margin-top: 0;
     }
   }
 
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     padding: 3rem;
   }
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     flex: 0 0 45%;
     margin: 0;
   }

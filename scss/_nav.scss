@@ -1,11 +1,14 @@
+@use "mixins";
+@use "variables";
+
 // NAV
 .intro {
   width: 100%;
-  background-color: $color-background;
+  background-color: variables.$color-background;
   position: fixed;
   top: 0;
   z-index: 500;
-  box-shadow: $design-box-shadow-default;
+  box-shadow: variables.$design-box-shadow-default;
   transition: all 0.5s ease-in-out;
 
   &__top {
@@ -31,7 +34,7 @@
   &__contact {
     display: none;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       display: flex;
       align-items: center;
     }
@@ -41,7 +44,7 @@
   &.collapsed {
     animation: navAnimate 1s;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -68,7 +71,7 @@
   &__icon {
     width: 2.5rem;
     height: 2.5rem;
-    fill: $color-secondary;
+    fill: variables.$color-secondary;
     opacity: 1;
     display: inline-block;
     margin-right: 0.7rem;
@@ -83,7 +86,7 @@
   &__list {
     width: 100%;
     // background-color: $color-background-light-grey;
-    background-color: $color-primary;
+    background-color: variables.$color-primary;
     list-style: none;
     text-align: center;
     display: flex;
@@ -100,7 +103,7 @@
       opacity: 0;
       right: -50%;
 
-      @include respond(desk-small) {
+      @include mixins.respond(desk-small) {
         visibility: visible;
         opacity: 1;
         right: 0;
@@ -113,11 +116,11 @@
       right: 0;
     }
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       width: 50%;
     }
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       width: 100%;
       background-color: transparent;
       flex-direction: row;
@@ -135,7 +138,7 @@
     justify-content: center;
     z-index: 200;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       margin: 0.3rem 1rem 0.3rem;
     }
 
@@ -144,17 +147,17 @@
     &:last-child::after {
       display: none;
 
-      @include respond(desk-small) {
+      @include mixins.respond(desk-small) {
         content: '';
         height: 20px;
         width: 1px;
-        border-right: 1px solid rgba($color-text, 0.5);
+        border-right: 1px solid rgba(variables.$color-text, 0.5);
         display: inline-block;
       }
     }
 
     &:last-child::after {
-      @include respond(desk-small) {
+      @include mixins.respond(desk-small) {
         margin-left: 17px;
       }
     }
@@ -173,8 +176,8 @@
       text-transform: uppercase;
       transition: all 0.25s ease-in-out;
 
-      @include respond(desk-small) {
-        color: $color-text;
+      @include mixins.respond(desk-small) {
+        color: variables.$color-text;
       }
     }
 
@@ -190,8 +193,8 @@
       border-bottom: 1px solid rgba(#fff, 0.75);
       transition: all 0.25s ease-in-out;
 
-      @include respond(desk-small) {
-        border-bottom: 1px solid $color-primary;
+      @include mixins.respond(desk-small) {
+        border-bottom: 1px solid variables.$color-primary;
       }
     }
 
@@ -200,8 +203,8 @@
     &.current {
       color: rgba(#fff, 0.75);
 
-      @include respond(desk-small) {
-        color: $color-primary;
+      @include mixins.respond(desk-small) {
+        color: variables.$color-primary;
       }
 
       &::after {
@@ -240,7 +243,7 @@
       }
     }
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       display: none;
     }
   }
@@ -255,7 +258,7 @@
     &::after {
       width: 3rem;
       height: 2px;
-      background-color: $color-text;
+      background-color: variables.$color-text;
       display: inline-block;
       z-index: 3000;
     }
@@ -323,9 +326,9 @@
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  top: 0 - ($sticky-nav-height-small);
+  top: 0 - (variables.$sticky-nav-height-small);
 
-  @include respond(desk-small) {
-    top: 0 - ($sticky-nav-height-large) + 95;
+  @include mixins.respond(desk-small) {
+    top: 0 - (variables.$sticky-nav-height-large) + 95;
   }
 }

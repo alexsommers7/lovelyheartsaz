@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 .news {
   display: flex;
   justify-content: center;
@@ -8,17 +11,17 @@
     flex: 0 0 100%;
     text-align: center;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       flex: 0 0 40%;
     }
 
-    @include respond(desk-medium) {
+    @include mixins.respond(desk-medium) {
       flex: 0 0 30%;
     }
   }
 
   &__icon {
-    fill: $color-primary;
+    fill: variables.$color-primary;
     width: 8rem;
     height: 8rem;
     margin: 1rem auto;
@@ -28,7 +31,7 @@
     flex: 0 0 100%;
     padding: 2rem 1rem 0;
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       flex: 0 0 35%;
       padding: 0;
     }

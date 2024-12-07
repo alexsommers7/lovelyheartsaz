@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 // UTILITY CLASSES
 .text-center {
     text-align: center !important;
@@ -12,9 +15,9 @@
 }
 
 .bordered {
-    border: 6px solid $color-background;
+    border: 6px solid variables.$color-background;
 
-    @include respond(desk-small) {
-        border: 10px solid $color-background;
+    @include mixins.respond(desk-small) {
+        border: 10px solid variables.$color-background;
     }
 }

@@ -1,7 +1,10 @@
+@use "mixins";
+@use "variables";
+
 .footer {
-  background-color: $footer-background-color;
-  color: $color-text;
-  padding: $footer-padding-small;
+  background-color: variables.$footer-background-color;
+  color: variables.$color-text;
+  padding: variables.$footer-padding-small;
   font-size: 1.6rem;
   text-align: center;
   display: flex;
@@ -14,12 +17,12 @@
     justify-content: space-between;
     text-align: center;
 
-    @include ieOnly {
+    @include mixins.ieOnly {
       flex-direction: row;
       align-items: center;
     }
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex-direction: row;
       align-items: center;
     }
@@ -34,7 +37,7 @@
     margin-bottom: 1.5rem;
     flex: 0 0 50%;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -45,7 +48,7 @@
     width: 2rem;
     height: 2rem;
     margin-top: 0.5rem;
-    fill: $color-text;
+    fill: variables.$color-text;
   }
 }
 
@@ -53,7 +56,7 @@
   font-size: 1.35rem;
   line-height: 1.8;
 
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     margin-top: 1.5rem;
   }
 

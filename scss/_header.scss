@@ -1,7 +1,10 @@
+@use "mixins";
+@use "variables";
+
 .header {
-  margin-top: $sticky-nav-height-small; // account for nav bar
+  margin-top: variables.$sticky-nav-height-small; // account for nav bar
   padding: 2rem;
-  color: $color-text;
+  color: variables.$color-text;
   background-image: linear-gradient(to bottom, rgba(239, 239, 239, 0.6), rgba(239, 239, 239, 0.6)),
     url(/img/home-hero.jpg);
   background-size: cover;
@@ -10,9 +13,9 @@
   display: flex;
   justify-content: space-around;
 
-  @include respond(desk-small) {
+  @include mixins.respond(desk-small) {
     min-height: 60rem;
-    margin-top: $sticky-nav-height-large; // account for nav bar
+    margin-top: variables.$sticky-nav-height-large; // account for nav bar
   }
 
   &__row {
@@ -26,11 +29,11 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       align-content: normal;
     }
 
-    @include respond(desk-medium) {
+    @include mixins.respond(desk-medium) {
       justify-content: space-between;
     }
   }
@@ -48,17 +51,17 @@
     opacity: 0;
     animation: fade-in-right 0.5s 1.9s ease-in-out forwards;
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       align-self: center;
       flex: 0 0 30%;
     }
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       padding: 0;
       flex: 0 0 40%;
     }
 
-    @include motionless {
+    @include mixins.motionless {
       opacity: 1;
       transform: translateX(0);
     }
@@ -72,16 +75,16 @@
     flex: 0 0 100%;
     width: 100%;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       padding-top: 50%;
     }
 
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex: 0 0 60%;
       padding-top: 33%;
     }
 
-    @include respond(desk-small) {
+    @include mixins.respond(desk-small) {
       flex: 0 0 50%;
     }
   }
@@ -107,11 +110,11 @@
     &::before {
       content: "";
       display: inline-block;
-      background-color: $color-background;
+      background-color: variables.$color-background;
       position: absolute;
       z-index: 100;
 
-      @include motionless {
+      @include mixins.motionless {
         display: none;
       }
     }
@@ -121,7 +124,7 @@
       height: 100%;
       animation: imgReveal 3.5s linear forwards;
 
-      @include motionless {
+      @include mixins.motionless {
         opacity: 1;
         visibility: visible !important;
       }
@@ -143,7 +146,7 @@
         object-position: top;
       }
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         width: 23%;
         height: 35%;
         top: 24%;
@@ -167,7 +170,7 @@
         object-position: center;
       }
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         width: 30%;
         height: 45%;
         bottom: 8%;
@@ -191,7 +194,7 @@
         object-position: top;
       }
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         width: 40%;
         height: 58%;
         top: 10%;
@@ -215,7 +218,7 @@
         object-position: center;
       }
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         width: 23%;
         height: 35%;
         bottom: 10%;
@@ -226,7 +229,7 @@
 
   & h1 {
     text-align: left;
-    color: $color-primary;
+    color: variables.$color-primary;
     padding: 2.2rem 0;
   }
 

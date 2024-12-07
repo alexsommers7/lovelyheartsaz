@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 .contact {
   width: 100%;
   display: flex;
@@ -9,7 +12,7 @@
       max-width: 800px;
       margin: 2rem auto;
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         text-align: center;
       }
   }
@@ -18,7 +21,7 @@
     flex: 0 0 100%;
     order: 2;
     
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex: 0 0 45%;
       order: 1;
     }
@@ -32,7 +35,7 @@
     margin: 2rem auto 1rem;
     padding: 2rem;
     
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       flex: 0 0 40%;
       order: 2;
       margin: 0;
@@ -41,7 +44,7 @@
     & img {
       margin: 5% auto 0;
 
-      @include respond(tab-land) {
+      @include mixins.respond(tab-land) {
         margin: 6% 0 0 -10%;
       }
     }
@@ -54,18 +57,18 @@
   display: flex;
   flex-direction: column;
 
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
       max-width: 75%;
       margin-left: auto;
       margin-right: auto;
   }
 
-  @include respond(desk-small) {
+  @include mixins.respond(desk-small) {
       padding: 2rem;
   }
 
   &__label {
-      color: $color-text;
+      color: variables.$color-text;
       font-size: 1.6rem;
       text-transform: uppercase;
   }
@@ -73,14 +76,14 @@
   &__input,
   &__textarea {
       appearance: none; // override safari inset shadow default
-      font-family: $font-family-main;
+      font-family: variables.$font-family-main;
       display: block;
       font-size: 1.6rem;
       margin-bottom: 4.5rem;
       padding: .5rem 1.5rem;
       border: none;
-      background-color: $color-background;
-      border-radius: $design-border-radius-default;
+      background-color: variables.$color-background;
+      border-radius: variables.$design-border-radius-default;
       width: 100%;
       max-width: 100%;
   }
@@ -88,12 +91,12 @@
   &__textarea {
       height: 15rem;
 
-      @include respond(desk-small) {
+      @include mixins.respond(desk-small) {
           height: 10rem;
       }
 
       &:focus {
-          border: 3px solid $color-text;
+          border: 3px solid variables.$color-text;
           box-shadow: 0 1rem 2rem rgba(0,0,0, .1);
       }
   }
